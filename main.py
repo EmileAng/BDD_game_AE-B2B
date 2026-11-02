@@ -1,5 +1,7 @@
 from pymongo import MongoClient 
-
+SERVER = MongoClient("localhost:27017")
+DB = SERVER("FG")
+TEAM_SIZE = 3
 
 # lancer le jeu
     # afficher le menu
@@ -11,9 +13,9 @@ from pymongo import MongoClient
             # lancer l'option correspondante
 
 # commencer une nouvelle partie 
-    # afficher les classes
+    # afficher la collection classes
     # choisir son équipe
-    # tant que qu'il reste un personnage vivant
+    # tant qu'il reste un personnage de l'équipe vivant
         # nouvelle vague
     # fin de partie
 
@@ -27,10 +29,11 @@ from pymongo import MongoClient
     # l'équipe attaque
     # si le monstre est en vie 
         # le monstre attaque
-    # retourner l'équipe et le monstre
+    # retourner l'équipe, le monstre, le tour
 
 # le monstre attaque (monstre, équipe)
-    # 
+    # choisir une cible valide dans l'équipe
+    # vie de la cible -= (attaque monstre - défense cible)
 
 # l'équipe attaque(équipe, monstre)
     # pour chaque personnage dans l'équipe
@@ -52,11 +55,6 @@ from pymongo import MongoClient
     # choisir un monstre au hasard dans la liste des monstres
     # retourner le monstre
 
-# récupérer la collection des monstres
-    # se connecter au serveur
-    # choisir la collection monstres
-    # retourner la collection monstres
-
 # les persos sont vivants(équipe)
     # pour chaque personnage dans l'équipe
         # si la vie du personnage est supérieure à 0 
@@ -64,9 +62,10 @@ from pymongo import MongoClient
     # retourner False
 
 # choisir son équipe 
+    # l'équipe n'est pas complète
     # tant que l'équipe n'est pas complète 
         # demander de choisir un personnage valide 
-        # si il y a 3 personnages dans l'équipe
+        # si il y a TEAM_SIZE personnages dans l'équipe
             # l'équipe est complète
     # retourner l'équipe 
 
@@ -76,16 +75,18 @@ from pymongo import MongoClient
         # ajouter personnage à l'équipe
         # retourner l'équipe
     # retourner l'équipe
-    
 
-# afficher les classes 
-    # récupérer la collection des classes
-    # retourner la les classes dans le bon format
 
-# récupérer la collection des classes
-    # se connecter au serveur
-    # choisir la collection classes
-    # retourner classes
+# afficher une collection 
+    # récupérer la collection voulue
+    # pour chaque character dans la collection
+        # afficher character
+
+# récupérer la collection 
+    # choisir la collection (format liste)
+    # retourner la collection
+
+
 
 # afficher les scores
 
