@@ -25,8 +25,27 @@ from pymongo import MongoClient
 # lancer un tour (équipe, monstre)
     # afficher le tour
     # l'équipe attaque
-    # le monstre attaque
+    # si le monstre est en vie 
+        # le monstre attaque
     # retourner l'équipe et le monstre
+
+# le monstre attaque (monstre, équipe)
+    # 
+
+# l'équipe attaque(équipe, monstre)
+    # pour chaque personnage dans l'équipe
+        # si le personnage et le monstre sont en vie
+            # le personnage attaque le monstre
+    # retourner l'équipe et le monstre
+
+# personnage attaque monstre (personnage, monstre)
+    # vie du monstre -= (attaque personnage - défense monstre)
+    # retourner monstre
+
+# vérifier si character est en vie
+    # si la vie est > 0 
+        # retourner True
+    # retourner False
 
 # choisir un monstre 
     # récupérer la collection des monstres
