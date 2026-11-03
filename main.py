@@ -2,7 +2,7 @@ from pymongo import MongoClient
 SERVER = MongoClient("localhost:27017")
 DB = SERVER("FG")
 TEAM_SIZE = 3
-
+ vérifier relancer nouvelle vague
 
 # lancer le jeu
     # afficher le menu
@@ -27,12 +27,18 @@ TEAM_SIZE = 3
 
 
 # commencer une nouvelle partie 
+    # vague = 0
     # créer une équipe
+    # lancer boucle principale (équipe)
+    # fin du jeu
+    
+# lancer boucle principale
     # tant que vrai
-        # nouvelle vague (équipe)
-        # relancer une vague
-        # si non 
-            # fin de partie
+            # vague += 1
+            # nouvelle vague (équipe)
+            # relancer une vague
+            # si non 
+                # return
 
 TODO # afficher scores  
 
@@ -54,46 +60,59 @@ TODO # afficher scores
 
 
 # nouvelle vague (équipe)
+    # tour = 0
     # choisir un monstre 
     # tant que le monstre et l'équipe sont vivants :
+        # tour += 1
         # lancer un tour (équipe, monstre)
+    # retourner équipe 
+
+# groupe est vivant
+    # vérifier les personnages vivants
+    # si groupe vide 
+        # retourner False
+    # retourner True
 
 # lancer un tour (équipe, monstre)
     # afficher le tour
     # équipe attaque 
     # monstre attaque
-    # retourner l'équipe, le monstre, le tour
+    # retourner équipe, monstre
 
 # équipe attaque (équipe, monstre)
-    # vérifier les personnages vivants
-    # l'équipe vivante attaque monstre(équipe vivante, monstre)
+    # vérifier équipe vivants
+    # l'équipe vivants attaque monstre(équipe vivante, monstre)
     # retourner monstre
 
 # monstre attaque 
-    # vérifier les monstres vivants
-    # monstre attaque équipe
+    # vérifier monstres vivants
+    # si il y a des monstres vivants
+        # monstres vivants attaque équipe
     # retourner équipe
 
-# groupe1 attaque groupe2()
+# groupe1 attaque groupe2
     # pour chaque personnage dans groupe1 
         # trouver une cible valide (groupe2)
-        # si une cible valide
-            # pv de la groupe2(cible) -= (attaque personnage - défense groupe2(cible))
+        # si une cible valide trouvée
+            # pv de la groupe2(cible) -= (attaque personnage - défense groupe2(cible)) ### FAIRE UNE FONCTION CALCULER DEGATS
+    # retourner groupe2
 
 
 # trouver une cible valide (groupe)
-    # vérifier les personnages vivants
-    # choisir une cible au hasard
-    # retourner la cible
+    # vérifier les personnages vivants dans groupe 
+    # si il y a des personnages vivants
+        # choisir une cible au hasard
+        # retourner la cible
+    # retourner None
+
+
 
 # vérifier les characters vivants (groupe)
     # équipe vivante = []
     # pour chaque personnage dans le groupe
-        # vérifier si le personnage est en vie
-        # si oui 
+        # si le personnage est en vie
             # l'ajouter à l'équipe vivante
     # retourner l'équipe vivante
-
 
 # vérifier si character est en vie
     # si la vie est > 0 
@@ -105,11 +124,11 @@ TODO # afficher scores
     # choisir un monstre au hasard dans la liste des monstres
     # retourner le monstre
 
-# les persos sont vivants(liste)
+'''# les persos sont vivants(liste)
     # pour chaque personnage dans l'équipe
         # si la vie du personnage est supérieure à 0 
             # retourner True
-    # retourner False
+    # retourner False'''
 
 # mon personnage est valide(équipe)
     # vérifier si le personnage existe 
