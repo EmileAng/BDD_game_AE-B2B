@@ -28,17 +28,24 @@ TEAM_SIZE = 3
 
 # commencer une nouvelle partie 
     # créer une équipe
-    # toute mon équipe est vivante
-    # tant qu'il reste un personnage de l'équipe vivant
-        # nouvelle vague
-        # vérifier les personnages vivants
-    # fin de partie
+    # tant que vrai
+        # nouvelle vague (équipe)
+        # relancer une vague
+        # si non 
+            # fin de partie
+
+TODO # afficher scores  
+
+# relancer une vague 
+    # vérifier si les persos sont vivants
+    # retourner résultat
 
 # créer une équipe 
     # afficher la collection classes
+    # équipe =[]
     # tant que la taille de l'équipe < TEAM_SIZE
         # demander un choix entité valide(liste)
-        # ajouter le choix entité valide 
+        # ajouter le choix entité valide (-1) à l'équipe
     # retourner équipe
 
 # choisir entité (liste)
@@ -46,53 +53,47 @@ TEAM_SIZE = 3
     # demander choix valide (min, max)
 
 
-# nouvelle vague (équipe, équipe vivante)
+# nouvelle vague (équipe)
     # choisir un monstre 
     # tant que le monstre et l'équipe sont vivants :
-        # lancer un tour
+        # lancer un tour (équipe, monstre)
 
-# lancer un tour (équipe, équipe vivante, monstre)
+# lancer un tour (équipe, monstre)
     # afficher le tour
     # équipe attaque 
     # monstre attaque
-    # vérifier les monstres vivants
-    # si le monstre est en vie 
-        # le monstre attaque équipe vivante
     # retourner l'équipe, le monstre, le tour
 
-# équipe attaque (équipe, équipe vivante, monstre)
+# équipe attaque (équipe, monstre)
     # vérifier les personnages vivants
-    # l'équipe vivante attaque monstre
+    # l'équipe vivante attaque monstre(équipe vivante, monstre)
+    # retourner monstre
 
 # monstre attaque 
     # vérifier les monstres vivants
     # monstre attaque équipe
+    # retourner équipe
 
-# attaquant attaque cible
-    # pour chaque personnage dans attaquant 
-        # trouver une cible valide
-        # pv de la cible -= (attaque attaquant - défense cible)
+# groupe1 attaque groupe2()
+    # pour chaque personnage dans groupe1 
+        # trouver une cible valide (groupe2)
+        # si une cible valide
+            # pv de la groupe2(cible) -= (attaque personnage - défense groupe2(cible))
+
+
+# trouver une cible valide (groupe)
+    # vérifier les personnages vivants
+    # choisir une cible au hasard
+    # retourner la cible
 
 # vérifier les characters vivants (groupe)
     # équipe vivante = []
     # pour chaque personnage dans le groupe
         # vérifier si le personnage est en vie
-        # si oui l'ajouter à l'équipe vivante
+        # si oui 
+            # l'ajouter à l'équipe vivante
     # retourner l'équipe vivante
 
-
-
-
-
-'''# l'équipe attaque(équipe, monstre)
-    # pour chaque personnage dans l'équipe
-        # si le personnage et le monstre sont en vie
-            # le personnage attaque le monstre
-    # retourner l'équipe et le monstre'''
-
-# personnage attaque monstre (personnage, monstre)
-    # vie du monstre -= (attaque personnage - défense monstre)
-    # retourner monstre
 
 # vérifier si character est en vie
     # si la vie est > 0 
@@ -104,7 +105,7 @@ TEAM_SIZE = 3
     # choisir un monstre au hasard dans la liste des monstres
     # retourner le monstre
 
-# les persos sont vivants(équipe)
+# les persos sont vivants(liste)
     # pour chaque personnage dans l'équipe
         # si la vie du personnage est supérieure à 0 
             # retourner True
@@ -121,11 +122,11 @@ TEAM_SIZE = 3
 
 # afficher une collection 
     # récupérer la collection voulue
-    # pour chaque character dans la collection
-        # afficher character
+    # pour chaque entité dans la collection
+        # afficher entité
 
 # récupérer la collection 
-    # choisir la collection (format liste)
+    # choisir la collection depuis DB(format liste)
     # retourner la collection
 
 
