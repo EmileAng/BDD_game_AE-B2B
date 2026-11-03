@@ -26,20 +26,34 @@ TEAM_SIZE = 3
 
 # lancer un tour (équipe, monstre)
     # afficher le tour
-    # l'équipe attaque
+    # vérifier les personnages vivants
+    # l'équipe vivante attaque monstre
+    # vérifier les monstres vivants
     # si le monstre est en vie 
-        # le monstre attaque
+        # le monstre attaque équipe vivante
     # retourner l'équipe, le monstre, le tour
 
-# le monstre attaque (monstre, équipe)
-    # choisir une cible valide dans l'équipe
-    # vie de la cible -= (attaque monstre - défense cible)
+# attaquant attaque cible
+    # pour chaque personnage dans attaquant 
+        # trouver une cible valide
+        # pv de la cible -= (attaque attaquant - défense cible)
 
-# l'équipe attaque(équipe, monstre)
+# vérifier les characters vivants (groupe)
+    # équipe vivante = []
+    # pour chaque personnage dans le groupe
+        # vérifier si le personnage est en vie
+        # si oui l'ajouter à l'équipe vivante
+    # retourner l'équipe vivante
+
+
+
+
+
+'''# l'équipe attaque(équipe, monstre)
     # pour chaque personnage dans l'équipe
         # si le personnage et le monstre sont en vie
             # le personnage attaque le monstre
-    # retourner l'équipe et le monstre
+    # retourner l'équipe et le monstre'''
 
 # personnage attaque monstre (personnage, monstre)
     # vie du monstre -= (attaque personnage - défense monstre)
@@ -73,7 +87,8 @@ TEAM_SIZE = 3
     # vérifier si le personnage existe 
     # si oui et n'est pas dans l'équipe 
         # ajouter personnage à l'équipe
-        # retourner l'équipe
+    # si non
+        # message d'erreur
     # retourner l'équipe
 
 
