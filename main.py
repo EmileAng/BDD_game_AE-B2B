@@ -2,7 +2,6 @@ from pymongo import MongoClient
 SERVER = MongoClient("localhost:27017")
 DB = SERVER("FG")
 TEAM_SIZE = 3
- vérifier relancer nouvelle vague
 
 # lancer le jeu
     # afficher le menu
@@ -17,14 +16,13 @@ TEAM_SIZE = 3
     # si le choix == 3 
         # quitter
 
-# demander un choix valide (min, max)
+# demander un choix valide (min=1, max)
     # tant que vrai
         # demander input
         # si le choix est un nombre 
             # si le choix < min et > max
                 # retourner choix
         # message d'erreur 
-
 
 # commencer une nouvelle partie 
     # vague = 0
@@ -33,18 +31,19 @@ TEAM_SIZE = 3
     # fin du jeu
     
 # lancer boucle principale
-    # tant que vrai
-            # vague += 1
-            # nouvelle vague (équipe)
-            # relancer une vague
-            # si non 
-                # return
+    # vague = 0
+    # tant que équipe en vie
+        # vague += 1
+        # nouvelle vague (équipe)
 
-TODO # afficher scores  
+# fin du jeu 
+    # afficher le score
+    # enregistrer le score
+    # afficher le leaderboard
 
-# relancer une vague 
-    # vérifier si les persos sont vivants
-    # retourner résultat
+# enregistrer le score 
+    # demander un nom valide 
+    # ajouter le score avec le nom à la DB
 
 # créer une équipe 
     # afficher la collection classes
@@ -58,6 +57,10 @@ TODO # afficher scores
     # trouver la taille min max de la liste
     # demander choix valide (min, max)
 
+# trouver la taille min max d'une liste (liste)
+    # taille max = longueur - 1
+    # taille min = 1
+    # retourner min et max
 
 # nouvelle vague (équipe)
     # tour = 0
@@ -68,19 +71,20 @@ TODO # afficher scores
     # retourner équipe 
 
 # groupe est vivant
-    # vérifier les personnages vivants
+    # récupérer les personnages vivants
     # si groupe vide 
         # retourner False
     # retourner True
 
 # lancer un tour (équipe, monstre)
+
     # afficher le tour
     # équipe attaque 
     # monstre attaque
     # retourner équipe, monstre
 
 # équipe attaque (équipe, monstre)
-    # vérifier équipe vivants
+    # récupérer équipe vivants
     # l'équipe vivants attaque monstre(équipe vivante, monstre)
     # retourner monstre
 
@@ -99,15 +103,14 @@ TODO # afficher scores
 
 
 # trouver une cible valide (groupe)
-    # vérifier les personnages vivants dans groupe 
+    # RECUPERER les personnages vivants dans groupe 
     # si il y a des personnages vivants
         # choisir une cible au hasard
         # retourner la cible
     # retourner None
 
 
-
-# vérifier les characters vivants (groupe)
+# RECUPERER les characters vivants (groupe)
     # équipe vivante = []
     # pour chaque personnage dans le groupe
         # si le personnage est en vie
@@ -120,15 +123,9 @@ TODO # afficher scores
     # retourner False
 
 # choisir un monstre 
-    # récupérer la collection des monstres
+    # récupérer la collection des monstres (format liste)
     # choisir un monstre au hasard dans la liste des monstres
     # retourner le monstre
-
-'''# les persos sont vivants(liste)
-    # pour chaque personnage dans l'équipe
-        # si la vie du personnage est supérieure à 0 
-            # retourner True
-    # retourner False'''
 
 # mon personnage est valide(équipe)
     # vérifier si le personnage existe 
@@ -138,19 +135,24 @@ TODO # afficher scores
         # message d'erreur
     # retourner l'équipe
 
-
 # afficher une collection 
-    # récupérer la collection voulue
+    # récupérer la collection voulue (format liste)
     # pour chaque entité dans la collection
         # afficher entité
 
 # récupérer la collection 
-    # choisir la collection depuis DB(format liste)
+    # choisir la collection depuis DB
     # retourner la collection
 
 
 # afficher les scores
 
 # quitter le jeu
+
+
+
+
+
+
 
 
