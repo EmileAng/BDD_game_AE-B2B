@@ -1,4 +1,9 @@
 from pymongo import MongoClient 
+import displays
+import utils
+import game
+
+
 SERVER = MongoClient("localhost:27017")
 DB = SERVER("FG")
 TEAM_SIZE = 3
@@ -8,6 +13,10 @@ NAME_SIZE = 3
     # afficher le menu
     # demander un choix valide
     # lancer l'option correspondante
+def main():
+    displays.display_menu()
+    choice = utils.ask_valid_choice(1,3)
+    start_option(choice)
 
 # lancer l'option correspondante (choix)
     # si le choix == 1 
@@ -16,6 +25,23 @@ NAME_SIZE = 3
         # afficher leaderboard
     # si le choix == 3 
         # quitter
+def start_option(choice):
+    if choice == 1 :
+        start_new_game()
+    if choice == 2 :
+        ...
+    if choice == 3 :
+        ...
+
+
+# commencer une nouvelle partie 
+    # créer une équipe
+    # lancer boucle principale (équipe)
+    # fin du jeu
+def start_new_game():
+    wave = 0
+    team = game.create_team()
+    game.main_loop(team)
 
 # quitter 
     # message de fin 
@@ -27,18 +53,8 @@ NAME_SIZE = 3
             # si le choix < min et > max
                 # retourner choix
         # message d'erreur 
-
-# commencer une nouvelle partie 
-    # vague = 0
-    # créer une équipe
-    # lancer boucle principale (équipe)
-    # fin du jeu
     
-# lancer boucle principale
-    # vague = 0
-    # tant que équipe en vie
-        # vague += 1
-        # nouvelle vague (équipe)
+
 
 # fin du jeu 
     # afficher le score
