@@ -2,6 +2,7 @@ from pymongo import MongoClient
 SERVER = MongoClient("localhost:27017")
 DB = SERVER("FG")
 TEAM_SIZE = 3
+NAME_SIZE = 3
 
 # lancer le jeu
     # afficher le menu
@@ -12,9 +13,12 @@ TEAM_SIZE = 3
     # si le choix == 1 
         # commencer une nouvelle partie
     # si le choix == 2 
-        # afficher les scores
+        # afficher leaderboard
     # si le choix == 3 
         # quitter
+
+# quitter 
+    # message de fin 
 
 # demander un choix valide (min=1, max)
     # tant que vrai
@@ -41,9 +45,22 @@ TEAM_SIZE = 3
     # enregistrer le score
     # afficher le leaderboard
 
+# afficher le leaderboard
+    # récupérer la collection des scores (format liste)
+    # trier les scores
+    # afficher les 10 premiers scores
+
 # enregistrer le score 
     # demander un nom valide 
-    # ajouter le score avec le nom à la DB
+    # insérer le score + nom à la collection
+
+# demander un nom valide
+    # nom = ""
+    # tant que vrai
+        # demander input 
+        # si la longueur de nom == NAME_SIZE
+            # retourner nom
+        # message d'erreur
 
 # créer une équipe 
     # afficher la collection classes
@@ -77,30 +94,27 @@ TEAM_SIZE = 3
     # retourner True
 
 # lancer un tour (équipe, monstre)
-
     # afficher le tour
     # équipe attaque 
     # monstre attaque
-    # retourner équipe, monstre
 
 # équipe attaque (équipe, monstre)
     # récupérer équipe vivants
     # l'équipe vivants attaque monstre(équipe vivante, monstre)
-    # retourner monstre
 
 # monstre attaque 
     # vérifier monstres vivants
     # si il y a des monstres vivants
         # monstres vivants attaque équipe
-    # retourner équipe
 
 # groupe1 attaque groupe2
     # pour chaque personnage dans groupe1 
         # trouver une cible valide (groupe2)
         # si une cible valide trouvée
-            # pv de la groupe2(cible) -= (attaque personnage - défense groupe2(cible)) ### FAIRE UNE FONCTION CALCULER DEGATS
-    # retourner groupe2
-
+            # infliger dégâts
+            
+# infliger dégâts(attaquant, groupe2, cible)
+    # pv de la groupe2(cible) -= (attaque attaquant - défense groupe2(cible))
 
 # trouver une cible valide (groupe)
     # RECUPERER les personnages vivants dans groupe 
@@ -108,7 +122,6 @@ TEAM_SIZE = 3
         # choisir une cible au hasard
         # retourner la cible
     # retourner None
-
 
 # RECUPERER les characters vivants (groupe)
     # équipe vivante = []
@@ -127,14 +140,6 @@ TEAM_SIZE = 3
     # choisir un monstre au hasard dans la liste des monstres
     # retourner le monstre
 
-# mon personnage est valide(équipe)
-    # vérifier si le personnage existe 
-    # si oui et n'est pas dans l'équipe 
-        # ajouter personnage à l'équipe
-    # si non
-        # message d'erreur
-    # retourner l'équipe
-
 # afficher une collection 
     # récupérer la collection voulue (format liste)
     # pour chaque entité dans la collection
@@ -143,16 +148,3 @@ TEAM_SIZE = 3
 # récupérer la collection 
     # choisir la collection depuis DB
     # retourner la collection
-
-
-# afficher les scores
-
-# quitter le jeu
-
-
-
-
-
-
-
-
