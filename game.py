@@ -1,5 +1,8 @@
 import db_init
 import utils
+import displays
+import random
+
 
 TEAM_SIZE = 3
 
@@ -41,5 +44,53 @@ def main_loop(team):
     # retourner équipe 
 def new_wave(team):
     turn = 0
-    monster = utils.choose_monster()
+    enemies = utils.choose_monster()
+    while utils.is_group_alive(enemies) and utils.is_group_alive(team):
+        turn += 1
+        displays.display_turn(turn)
+        new_turn(team, enemies)
+
+# lancer un tour (équipe, monstre)
+    # équipe attaque 
+    # monstre attaque
+def new_turn(team, enemies):
+    team_attack(team, enemies)
+
+
+# équipe attaque (équipe, monstre)
+    # récupérer équipe vivants
+    # l'équipe vivants attaque monstre(équipe vivante, monstre)
+def team_attack(team, enemies):
+    alive_team = utils.get_alive_characters(team)
+    group_attack(alive_team, enemies)
+
+
+# groupe1 attaque groupe2
+    # pour chaque personnage dans groupe1 
+        # trouver une cible valide (groupe2)
+        # si une cible valide trouvée
+            # infliger dégâts
+def group_attack(group_1, group_2):
+    for character in group_1:
+        target = find_valid_target(group_2)
+        if target :
+            deal_damages(character, group_2, target)
+
+# infliger dégâts(attaquant, groupe2, cible)
+    # pv de la groupe2(cible) -= (attaque attaquant - défense groupe2(cible))
+def deal_damages(aggressor, group_2, target):
+    group_2(target["PV"]) -= (aggressor["ATK"] - group_2(target["DEF"]))
+
+# trouver une cible valide (groupe)
+    # RECUPERER les personnages vivants dans groupe 
+    # si il y a des personnages vivants
+        # choisir une cible au hasard
+        # retourner la cible
+    # retourner None
+def find_valid_target(group):
+    alive_targets = utils.get_alive_characters(group)
+    if alive_targets :
+        target = random.choice(alive_targets)
+        return target
+    return None
 

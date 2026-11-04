@@ -16,11 +16,12 @@ NAME_SIZE = 3
 
 def display_collection(collection_name):
     collection = list(get_collection_from_db(collection_name))
-    for entity in collection :
-        print(entity)
+    for entity in range(len(collection)) :
+        print(collection[entity])
 
 def get_collection_from_db(collection_name):
-    collection = DB.getCollection(collection_name)
-    return collection
+    collection = DB.get_collection(collection_name)
+    collection_found = list(collection.find({}))
+    return collection_found
 
-display_collection("FG_characters")
+

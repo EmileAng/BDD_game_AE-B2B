@@ -3,3 +3,6 @@ def display_menu():
 
 def error_message():
     print("Choix invalide !")
+
+def display_turn(turn):
+    print(f"------ TOUR {turn} ------")
