@@ -6,3 +6,12 @@ def error_message():
 
 def display_turn(turn):
     print(f"------ TOUR {turn} ------")
+
+def display_wave(wave):
+    print(f"------ VAGUE {wave} ------")
+
+def display_score(score):
+    print(f"-- VOUS AVEZ SURVÉCU {score} VAGUES --")
+
+def display_leave():
+    print("A bientôt !")

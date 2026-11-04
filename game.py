@@ -33,7 +33,9 @@ def main_loop(team):
     wave = 0
     while utils.is_group_alive(team):
         wave += 1
+        displays.display_wave(wave)
         new_wave(team)
+    return wave
 
 # nouvelle vague (équipe)
     # tour = 0
@@ -41,7 +43,6 @@ def main_loop(team):
     # tant que le monstre et l'équipe sont vivants :
         # tour += 1
         # lancer un tour (équipe, monstre)
-    # retourner équipe 
 def new_wave(team):
     turn = 0
     enemies = utils.choose_monster()
@@ -55,7 +56,16 @@ def new_wave(team):
     # monstre attaque
 def new_turn(team, enemies):
     team_attack(team, enemies)
+    enemies_attack(team, enemies)
 
+# monstre attaque 
+    # récupérer monstres vivants
+    # si il y a des monstres vivants
+        # monstres vivants attaque équipe
+def enemies_attack(team, enemies):
+    alive_enemies = utils.get_alive_characters(enemies)
+    if alive_enemies:
+        group_attack(enemies, team)
 
 # équipe attaque (équipe, monstre)
     # récupérer équipe vivants
@@ -63,7 +73,6 @@ def new_turn(team, enemies):
 def team_attack(team, enemies):
     alive_team = utils.get_alive_characters(team)
     group_attack(alive_team, enemies)
-
 
 # groupe1 attaque groupe2
     # pour chaque personnage dans groupe1 
@@ -79,7 +88,7 @@ def group_attack(group_1, group_2):
 # infliger dégâts(attaquant, groupe2, cible)
     # pv de la groupe2(cible) -= (attaque attaquant - défense groupe2(cible))
 def deal_damages(aggressor, group_2, target):
-    group_2(target["PV"]) -= (aggressor["ATK"] - group_2(target["DEF"]))
+    group_2(target["PV"]) = group_2(target["PV"]) - (aggressor["ATK"] - group_2(target["DEF"]))
 
 # trouver une cible valide (groupe)
     # RECUPERER les personnages vivants dans groupe 

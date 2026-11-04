@@ -2,6 +2,10 @@ import displays
 import db_init
 import random
 
+
+NAME_SIZE = 3
+
+
 # demander un choix valide (min=1, max)
     # tant que vrai
         # demander input
@@ -14,8 +18,7 @@ def ask_valid_choice(minimum=1, maximum=None):
         entry = input("Choisissez une option")
         if entry.isdigit() and entry < minimum and entry > maximum:
                 return entry
-        displays.error_message()
-        
+        displays.error_message()      
 
 # choisir entité (liste)
     # trouver la taille min max de la liste
@@ -25,8 +28,6 @@ def ask_valid_entity_choice(list):
      min_lenght, max_lenght = find_list_extrems(list)
      choice = ask_valid_choice(min_lenght, max_lenght)
      return choice
-
-
 
 # trouver la taille min max d'une liste (liste)
     # taille max = longueur - 1
@@ -65,7 +66,6 @@ def get_alive_characters(group):
     # si la vie est > 0 
         # retourner True
     # retourner False
-
 def is_alive(character):
      if character["PV"] > 0 :
         return True
@@ -79,3 +79,34 @@ def choose_monster():
     ennemies = db_init.get_collection_from_db("FG_enemies")
     enemy = random.choice(ennemies)
     return enemy
+
+# enregistrer le score 
+    # demander un nom valide 
+    # insérer le score + nom à la collection
+def save_score(score):
+    player_name = ask_valid_name()
+    db_init.update_db_score(player_name, score)
+
+# demander un nom valide
+    # nom = ""
+    # tant que vrai
+        # demander input 
+        # si la longueur de nom == NAME_SIZE
+            # retourner nom
+        # message d'erreur
+def ask_valid_name():
+    while True:
+        name = input(f"Entrez un nom à {NAME_SIZE} caractères")
+        if len(name) == NAME_SIZE:
+            return name
+        print("Nom invalide !")
+
+# afficher le leaderboard
+    # récupérer la collection des scores (format liste)
+    # trier les scores
+    # afficher les 10 premiers scores
+def display_leaderboard():
+    scores = list(db_init.get_collection_from_db("scores"))
+    sorted_scores = sorted(scores, key=lambda entity: entity["score"], reverse=True)
+    for score in range(10) :
+        print(sorted_scores[score])
